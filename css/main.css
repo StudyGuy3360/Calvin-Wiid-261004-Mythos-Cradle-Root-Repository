@@ -369,7 +369,9 @@ margin-right: 550px;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     text-align: center;
+    padding-top: 100px;
 }
+
 .product-card {
     font-family: 'poppins', sans-serif;
     border: 1px solid #ddd;
@@ -377,6 +379,14 @@ margin-right: 550px;
     padding: 20px;
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding-top:100px;
+    padding-right:100px;
+}
+
+.card-body {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; /* aligns text with top of image */
 }
 
 .card-header h2 {
@@ -391,7 +401,7 @@ margin-right: 550px;
 .current-price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 
 .old-price {
@@ -400,17 +410,19 @@ margin-right: 550px;
     margin-left: 10px;
 }
 
-.card-body {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
 .image-section img {
-    width: 200px;
+    width: 600px;
     height: auto;
     border-radius: 8px;
     display: block;
+    padding-left:100px;
+    padding-right: 100px;
+
+}
+
+.description {
+    line-height: 1.6;
+    text-align: left;
 }
 
 .quantity-selector {
@@ -429,7 +441,7 @@ margin-right: 550px;
     margin-top: 10px;
     padding: 10px;
     background: #3498db;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -438,15 +450,15 @@ margin-right: 550px;
 .spec-table {
     margin-top: 15px;
     font-size: 0.9rem;
-    background: #f9f9f9;
-    padding: 10px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 5px;
+    font-size:large;
+    line-height: 2;
 }
 
 .spec-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
-    border-bottom: 1px solid #eee;
 }
-
