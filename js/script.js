@@ -159,3 +159,75 @@ document.addEventListener("DOMContentLoaded", () => {
         renderNotes();
     });
 });
+
+
+// ////////////////////////////////////////////
+// modal2
+const openCartModalButton2 = document.getElementById("submit"); 
+const petCartModal2 = document.getElementById("petCartModal2");
+const continueSearchingButton2 = document.getElementById("continueSearchingButton2");
+const taskSubmissionForm2 = document.getElementById("taskSubmissionForm2");
+const taskItemsContainer2 = document.getElementById("taskItemsContainer2");
+const clearAllTasksButton2 = document.getElementById("clearAllTasksButton2");
+
+// modal2
+
+openCartModalButton2 && petCartModal2 && openCartModalButton2.addEventListener("click", () => {
+    const nameInput = document.getElementById("name");
+    const modalNamePlaceholder = document.getElementById("userNameSpan2");
+
+    if (nameInput && modalNamePlaceholder) {
+        const enteredName = nameInput.value.trim();
+        modalNamePlaceholder.textContent = enteredName;
+    }
+
+    petCartModal2.style.display = "flex";
+    renderNotes2();
+});
+continueSearchingButton2 && petCartModal2 && continueSearchingButton2.addEventListener("click", () => {
+    petCartModal2.style.display = "none"; 
+});
+
+// modal2
+clearAllTasksButton2?.addEventListener("click", () => {
+    cradleNotesCollection2 = [];
+    localStorage.removeItem("cradleNotes2");
+    renderNotes2();
+});
+
+// /////////////////////////////////////////////////////////////////
+// slider
+const sliderTrack2 = document.getElementById("sliderTrack2");
+const prevBtn2 = document.getElementById("prevSlideBtn2");
+const nextBtn2 = document.getElementById("nextSlideBtn2");
+
+let currentSlideIndex2 = 0;
+
+if (sliderTrack2 && prevBtn2 && nextBtn2) {
+    const totalSlides2 = sliderTrack2.querySelectorAll("img").length;
+
+  
+    const updateSliderPosition2 = () => {
+        sliderTrack2.style.transform = `translateX(-${currentSlideIndex2 * 100}%)`;
+    };
+
+    // Next Button Click Listener
+    nextBtn2.addEventListener("click", () => {
+        if (currentSlideIndex2 < totalSlides2 - 1) {
+            currentSlideIndex2++;
+        } else {
+            currentSlideIndex2 = 0;
+        }
+        updateSliderPosition2();
+    });
+
+    // slider
+    prevBtn2.addEventListener("click", () => {
+        if (currentSlideIndex2 > 0) {
+            currentSlideIndex2--;
+        } else {
+            currentSlideIndex2 = totalSlides2 - 1;
+        }
+        updateSliderPosition2();
+    });
+}
