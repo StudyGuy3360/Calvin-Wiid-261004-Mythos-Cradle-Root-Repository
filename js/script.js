@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const input = document.getElementById("taskInput");
         const value = input?.value.trim();
         if (value) {
-            cradleNotesCollection.push(value);
+            cradleNotesCollection.push({ name: value, qty: 1 });
             localStorage.setItem("cradleNotes", JSON.stringify(cradleNotesCollection));
             input.value = "";
             renderNotes();
@@ -112,12 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = e.target.closest(".productCard1, .productCard2");
             if (card) {
                 const name = card.querySelector("h2")?.textContent.trim() || "Unknown Creature";
-                const qty = card.querySelector("[class^='quantitySelector'] span")?.textContent.trim() || "1";
-                const item = `${name} (x${qty})`;
+                const qty = parseInt(card.querySelector("[class^='quantitySelector'] span")?.textContent.trim(), 10) || 1;
+                const item = { name: name, qty: qty };
 
                 cradleNotesCollection.push(item);
                 localStorage.setItem("cradleNotes", JSON.stringify(cradleNotesCollection));
-                alert(`${item} has been added to your cradle`);
+                alert(`${name} has been added to your cradle`);
                 renderNotes();
             }
         }
